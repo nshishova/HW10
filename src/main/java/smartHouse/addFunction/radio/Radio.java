@@ -2,12 +2,13 @@ package smartHouse.addFunction.radio;
 
 public class Radio {
 
-    public int currantRadioStation;
+    private int currantRadioStation;
+    private int currantVolume;
 
     public int getCurrantRadioStation() {
         return currantRadioStation;
     }
-
+    
     public void setCurrantRadioStation(int newCurrantRadioStation) {
         if (newCurrantRadioStation > 9) {
             return;
@@ -18,26 +19,26 @@ public class Radio {
         currantRadioStation = newCurrantRadioStation;
     }
 
+    public int getCurrantVolume() {
+        return currantVolume;
+    }
+
     public int next() {
         if (currantRadioStation < 9) {
-            return currantRadioStation++;
+            currantRadioStation++;
         } else {
-            return currantRadioStation;
+            currantRadioStation = 0;
         }
+        return currantRadioStation;
     }
 
     public int prev() {
         if (currantRadioStation > 0) {
-            return currantRadioStation--;
+            currantRadioStation--;
         } else {
-            return currantRadioStation;
+            currantRadioStation = 9;
         }
-    }
-
-    public int currantVolume;
-
-    public int getCurrantVolume() {
-        return currantVolume;
+        return currantRadioStation;
     }
 
     public void setCurrantVolume(int newCurrantVolume) {
@@ -52,19 +53,19 @@ public class Radio {
 
     }
 
-    public int volumeUp() {
+    public void volumeUp() {
         if (currantVolume < 100) {
-            return currantVolume++;
+            currantVolume++;
         } else {
-            return currantVolume;
+            currantVolume = 100;
         }
     }
 
-    public int volumeDown() {
+    public void volumeDown() {
         if (currantVolume > 0) {
-            return currantVolume--;
+            currantVolume--;
         } else {
-            return currantVolume;
+            currantVolume = 0;
         }
     }
 }
