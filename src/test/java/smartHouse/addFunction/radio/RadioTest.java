@@ -131,5 +131,16 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void radioRange1() {
+        int expected = 15;
+        Radio radio = new Radio(expected);
+
+        int actual = radio.getRadioRange();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
 }
 
